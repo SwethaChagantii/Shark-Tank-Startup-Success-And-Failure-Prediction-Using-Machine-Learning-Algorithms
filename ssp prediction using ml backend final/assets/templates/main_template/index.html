@@ -1,0 +1,325 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" type="text/css" href="{% static 'user_static/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'user_static/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'user_static/css/responsive.css' %}">
+<link rel="icon" href="{% static 'user_static/images/roc.png' %}" type="image/png" />
+<link rel="stylesheet" href="{% static 'user_static/css/jquery.mCustomScrollbar.min.css' %}">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="{% static 'user_static/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'user_static/css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+<style>
+    .nav-link {
+        color:gold !important;
+    }
+
+    .nav-item.active .nav-link {
+    color: white !important;
+    }
+    
+.header_section {
+    background: linear-gradient(90deg, #c94b4b, #4b134f);
+}
+.highlight-box {
+    border: 2px solid white; 
+    padding: 15px; 
+    border-radius: 8px;
+    background-color:rgb(255, 228, 232); 
+    width: 130%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-box p {
+    color:brown; 
+    font-family: 'poppins', 'Roboto';
+    font-size: 18px;
+}
+
+
+.banner_taital {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #12558d;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    }
+
+    .banner_taital_1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: goldenrod; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    }
+
+    .about_section, .choose_section {
+        background-color: #f7f7f7;
+        padding: 50px 0;
+    }
+
+    .choose_taital {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #12558d;
+    }
+
+    .choose_text {
+        font-size: 24px;
+        margin-bottom: 40px;
+        color: #555555;
+    }
+
+    .services_section {
+        background-color: #f7f7f7;
+        padding: 20px 0;
+    }
+
+    .services_taital {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #0fc6d3;
+        text-align: center;
+    }
+
+    .box-part {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .box-part:hover {
+        background-color: #f7f7f7;
+    }
+
+    .box-part i {
+        font-size: 48px;
+        color: #12558d;
+        margin-bottom: 20px;
+    }
+
+    .box-part h4 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #12558d;
+    }
+
+    .box-part span {
+        font-size: 18px;
+        color: #555555;
+    }
+
+    .box-part a {
+        color: #12558d;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .box-part a:hover {
+        color: #1e90ff;
+    }
+
+    .client_taital {
+        font-size: 36px;
+        color: #12558d;
+    }
+
+    .client_text {
+        font-size: 24px;
+        color: #555555;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+        font-family:'poppins', 'Roboto';
+        font-weight: bold;
+        color: #12558d;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to right, white, white);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        letter-spacing: 1px;
+    }
+
+</style>
+
+</head>
+<body>
+<div class="header_section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-fluid px-0">
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-black py-0 px-0">
+                        <div>
+                            <a href="{% url 'home' %}"><img style="width:71px;" src="{% static 'user_static/images/rocket.png' %}">
+                            </a>
+                        </div>
+                        
+                        <a class="navbar-brand" href="{% url 'home' %}">STARTUP SUCCESS PREDICTOR</a>
+                        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse mr-5" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'user_login' %}">User</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'admin_login' %}">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="banner_section layout_padding" style="background: white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="highlight-box">
+                    <p>Startups are the growth indicators of a country. Growing startups are a good opportunity for investors to get high returns in less time and investment amount. <br/><br/>In this context, startup success and failure prediction are essential for investors and business administrators. The manual analysis and tracking of a company growth is challenging for an investor. <br/><br/>ML algorithms predict startup success by analyzing factors like product uniqueness, market demand, financial metrics, etc. and promise investors and entrepreneurs to make informed investment decisions.</p>
+                </div>
+            </div>
+            
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5">
+                <div><img src="{% static 'user_static/images/startup.gif' %}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="services_section layout_padding">
+    <div class="container">
+        <h1 class="services_taital" style="color:palevioletred">Our Services</h1>
+        <div class="box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="box-part text-center" >
+                            <i class="fa fa-level-up fa-3x" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>Insights</h4>
+                            </div>
+                            <div class="text">
+                                <span style="color:rosybrown">Level up your startup success with our advanced prediction tool</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="box-part text-center">
+                            <i class="fa fa-info-circle fa-3x" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>Accurate Predictions</h4>
+                            </div>
+                            <div class="text">
+                                <span style="color:rosybrown">Get accurate predictions about the success of your startup with our tool</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="box-part text-center">
+                            <i class="fa fa-eye fa-3x" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>User Friendly Interface</h4>
+                            </div>
+                            
+                            <div class="text">
+                                <span style="color:rosybrown">Experience a user-friendly interface designed for ease of use</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about_section layout_padding" style="background-color:white;">
+    <div class="container">
+        <h1 class="services_taital" style="color:#0fc6d3">About Shark Tank Show</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div><img  src="{% static 'user_static/images/sharktank.jpg' %}" class="image_2"></div>
+            </div>
+            <div class="col-md-6">
+                <p style="color:mediumvioletred; font-size: 15px;">Shark Tank is a popular reality TV show where entrepreneurs pitch their business ideas to a panel of potential investors, referred to as "sharks." The sharks are successful entrepreneurs and investors who consider investing their own money in exchange for equity in the entrepreneurs' businesses. <br><br>Contestants negotiate deals with the sharks, aiming to secure investment to help grow their businesses. The show provides a platform for entrepreneurs to showcase their ideas and potentially receive funding, mentorship, and exposure for their businesses.
+                </p>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="choose_section layout_padding">
+    <div class="container">
+        <h1 class="services_taital" style="color:goldenrod">Algorithms Used In Prediction</h1>
+        <div class="choose_section_2 layout_padding" style="padding:10px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="choose_box" style = "padding: 10px; width: 110%;max-width: 400px;">
+                        <h1 class="client_taital">1</h1>
+                        <h4 class="client_text">Gradient Boosting</h4>
+                        <h6 style="color:#0fc6d3; justify-content: center;margin:12px;">Builds decision trees sequentially, correcting errors of previous trees to create powerful predictive model</h6>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="choose_box" style = "padding: 10px; width: 110%;max-width: 400px;">
+                        <h1 class="client_taital">2</h1>
+                        <h4 class="client_text">Ada Boost</h4>
+                        <h6 style="color:#0fc6d3; justify-content: center;margin:12px;">Combines weak learners to create a strong classifier by emphasizing on previously misclassified instances</h6>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="choose_box" style = "padding: 10px;width: 110%;max-width: 400px;">
+                        <h1 class="client_taital">3</h1>
+                        <h4 class="client_text">Random Forest</h4>
+                        <h6 style="color:#0fc6d3; justify-content: center;margin:12px;">Constructs multiple decision trees and combines their outputs to improve accuracy and reduce overfitting</h6>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright_section" style="background-color:thistle;border-top: none;">
+    <div class="container">
+        <p class="copyright_text" style="color: white;">&copy; Copyright 2024 - All Rights Reserved and Distributed by Team SSP</p>
+    </div>
+</div>
+<script src="{% static 'user_static/js/jquery.min.js' %}"></script>
+<script src="{% static 'user_static/js/popper.min.js' %}"></script>
+<script src="{% static 'user_static/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'user_static/js/jquery-3.0.0.min.js' %}"></script>
+<script src="{% static 'user_static/js/plugin.js' %}"></script>
+<script src="{% static 'user_static/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'user_static/js/custom.js' %}"></script>
+<script src="{% static 'user_static/js/owl.carousel.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+    function sendMessage() {
+        alert("Message sent successfully!");
+    }
+</script>
+</body>
+</html>

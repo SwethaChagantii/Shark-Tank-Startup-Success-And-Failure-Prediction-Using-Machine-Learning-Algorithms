@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Registration</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_static/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_static/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'user_static/css/responsive.css' %}">
+    <link rel="icon" href="{% static 'user_static/images/roc.png' %}" type="image/png" />
+    <link rel="stylesheet" href="{% static 'user_static/css/jquery.mCustomScrollbar.min.css' %}">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'user_static/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'user_static/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        .nav-link {
+            color:pink !important;
+        }
+
+        .nav-item.active .nav-link {
+            color: white !important;
+        }
+
+        .card {
+            border: none; 
+        }
+
+        .navbar {
+            margin-bottom: 0;
+        }
+
+        .section-gap {
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <script>
+        swal({
+            title: "Success!",
+            text: "{{message}}",
+            icon: "success",
+            button: "OK",
+        });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+    <script>
+        swal({
+            title: "Warning :)",
+            text: "{{message}}",
+            icon: "warning",
+            button: "OK",
+
+        });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+    <script>
+        swal({
+            title: "info :)",
+            text: "{{message}}",
+            icon: "info",
+            button: "OK",
+        });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <script>
+        swal({
+            title: "error :)",
+            text: "{{message}}",
+            icon: "error",
+            button: "OK",
+        });
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <div class="header_section" style="background: linear-gradient(90deg, #20002c, #cbb4d4);">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid px-0">
+                        <nav class="navbar navbar-expand-sm navbar-dark bg-black py-0 px-0">
+                            <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div>
+                                <a href="{% url 'home' %}"><img style="width:71px;" src="{% static 'user_static/images/rocket.png' %}">
+                                </a>
+                            </div>
+                            <div class="collapse navbar-collapse mr-5" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link font-weight-bold text-black" href="{% url 'home' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link font-weight-bold text-black" href="{% url 'user_login' %}">User</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link font-weight-bold text-black" href="{% url 'admin_login' %}">Admin</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link font-weight-bold text-black" href="{% url 'contact' %}">Contact</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="vh-auto section-gap" style="background-color: #ffffff;" data-aos="fade-in">
+        <div class="container ">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-sm-12 col-lg-9 col-xl-11">
+                    <div class="card">
+                        <div class="card-body px-5 pt-5 pb-2">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 col-lg-12 col-xl-12 order-2 order-lg-1">
+                                    <p class="text-center h2 fw-bold mx-1 mx-md-4 mt-2" style="padding:10px; border-bottom:3px solid rgb(214, 184, 184) ; color:mediumvioletred">USER REGISTRATION</p>
+                                    <form class="form-box mainForm px-4 mb-2 pt-5" style="margin-top:-40px" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="form-row row mb-2">
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="" class="m-1  ">Full Name :</label>
+                                                <input type="text" id="" required class="form-control" placeholder="Name" name="fullname">
+                                            </div>
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="" class="m-1">Email :</label>
+                                                <input type="text" id="" required class="form-control" placeholder="abc@gmail.com" name="email">
+                                            </div>
+                                        </div>
+                                        <div class="form-row row mb-2">
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="chooseCategory" class="m-1">Phone :</label>
+                                                <input type="number" id="" required class="form-control" placeholder="+91 XXXX-XXXXX" name="phonenumber">
+                                            </div>
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="" class="m-1">Password :</label>
+                                                <input type="password" id="" required class="form-control" name="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-row row mb-2">
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="chooseCategory" class="m-1">Upload Profile Photo :</label>
+                                                <input type="file" id="" class="form-control" name="image" required>
+                                            </div>
+                                            <div class="col-md-5 mx-auto">
+                                                <label for="" class="m-1">State :</label>
+                                                <input type="text" id="" required class="form-control" name="state">
+                                            </div>
+                                        </div>
+                                        <p class="small text-dark mt-4 ml-5"><input type="checkbox" required name="" id="" checked> I agree to all the terms and conditions of this website</p>
+                                        <div class="mt-4 text-center" value="Submit Button">
+                                            <button class="btn btn-primary btn-pill col-md-5 justify-content-center text fw-bold" style="background-color:goldenrod;border:none;" type="submit">Register</button>
+                                        </div>
+                                        <h5 class="pt-3 text-center">Already have an account ? <a style="color:blue;" href="{% url 'user_login' %}">Login</a></h5>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="copyright_section" style="background-color:thistle;border-top: none;">
+        <div class="container">
+            <p class="copyright_text" style="color: white;">&copy; Copyright 2024 - All Rights Reserved and Distributed by Team SSP</p>
+        </div>
+    </div>
+    <script src="{% static 'user_static/js/jquery.min.js' %}"></script>
+    <script src="{% static 'user_static/js/popper.min.js' %}"></script>
+    <script src="{% static 'user_static/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'user_static/js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'user_static/js/plugin.js' %}"></script>
+    <script src="{% static 'user_static/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'user_static/js/custom.js' %}"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function () {
+
+                $(this).addClass('transition');
+            }, function () {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+</body>
+
+</html>

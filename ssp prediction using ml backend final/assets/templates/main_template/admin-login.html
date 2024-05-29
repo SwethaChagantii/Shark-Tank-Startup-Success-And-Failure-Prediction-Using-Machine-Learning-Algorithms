@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'user_static/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'user_static/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'user_static/css/responsive.css' %}">
+  <link rel="icon" href="{% static 'user_static/images/roc.png' %}" type="image/png" />
+  <link rel="stylesheet" href="{% static 'user_static/ss/jquery.mCustomScrollbar.min.css' %}">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="{% static 'user_static/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'user_static/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    h2.text-dark {
+      color: #12558d !important;
+    }
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .nav-link {
+        color:rgb(227, 242, 59) !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .nav-item.active .nav-link {
+    color: white !important;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2.text-dark {
+    color: mediumvioletred !important;
+    font-size:25px !important;
+    font-weight: 520 !important;
+
+    }
+    .card-header {
+      background-color: transparent;
+      border-bottom: none;
+    }
+    .card-body {
+      padding: 30px;
+    }
+    .form-control {
+      border-color: #ced4da;
+      border-radius: 8px;
+    }
+    .form-control:focus {
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      border-radius: 8px;
+    }
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+    .btn-primary:focus {
+      box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    }
+    .card-footer {
+      background-color: transparent;
+      border-top: none;
+    }
+    .card-footer p {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  {% if messages %}
+  {% for message in messages %}
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+  <script>swal({ title: "Success!", text: "{{message}}", icon: "success", button: "OK" });</script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+  <script>swal({ title: "Warning :)", text: "{{message}}", icon: "warning", button: "OK" });</script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+  <script>swal({ title: "info :)", text: "{{message}}", icon: "info", button: "OK" });</script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+  <script>swal({ title: "error :)", text: "{{message}}", icon: "error", button: "OK" });</script>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  
+  <div class="header_section" style="background: linear-gradient(90deg, palevioletred, #cbad6d); font-family:poppins;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container-fluid px-0">
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-black py-0 px-0">
+                        <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div>
+                          <a href="{% url 'home' %}"><img style="width:71px;" src="{% static 'user_static/images/rocket.png' %}">
+                          </a>
+                      </div>
+                      
+                        <div class="collapse navbar-collapse mr-5" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'user_login' %}">User</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'admin_login' %}">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-bold text-black" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <section class="vh-auto" style="background-color: #ffffff;" data-aos="fade-in">
+      <div class="container">
+        <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh">
+          <div class="d-flex flex-column justify-content-between">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 col-md-10"> 
+                <div class="card border-0 shadow-lg mb-0 rounded">
+                  <div class="card-header pb-0">
+                    <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
+                      <img src="{% static 'user_static/images/login.gif' %}" width="250px" alt="Logo">
+                    </div>
+                  </div>
+                  <div class="card-body px-5 pb-5 pt-0">
+                    <h2 class="text-dark mb-6 text-center" style="font-family: poppins; margin:0px;">ADMIN LOGIN</h2>
+                    <form method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="text" style="font-family: poppins;"class="form-control input-lg" id="username" aria-describedby="emailHelp" placeholder="Enter your username" name="username" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <input type="password" style="font-family: poppins;" class="form-control input-lg" id="password" placeholder="Enter your password" name="password" required>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" style="font-family: poppins;" for="rememberMe">Remember me</label>
+                          </div>
+                          <button type="submit" class="btn btn-primary btn-pill mb-4 col-12" style="background-color: goldenrod; border-color: #ffffff; font-family: poppins;">Login</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="copyright_section" style="background-color:thistle;border-top: none;">
+      <div class="container">
+          <p class="copyright_text" style=" font-family:poppins; color: white;">&copy; Copyright 2024 - All Rights Reserved and Distributed by Team SSP</p>
+      </div>
+    </div>
+
+    <script src="{% static 'user_static/js/jquery.min.js' %}"></script>
+    <script src="{% static 'user_static/js/popper.min.js' %}"></script>
+    <script src="{% static 'user_static/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'user_static/js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'user_static/js/plugin.js' %}"></script>
+    <script src="{% static 'user_static/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'user_static/js/custom.js' %}"></script>
+    <script src="{% static 'user_static/js/owl.carousel.js' %}"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+</body>
+</html>
