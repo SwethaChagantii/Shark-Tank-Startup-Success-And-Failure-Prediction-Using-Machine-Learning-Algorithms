@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comparison Graph</title>
+  <meta name="theme-name" content="mono" />
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
+  <link href="{% static 'admin_static/plugins/material/css/materialdesignicons.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'admin_static/plugins/simplebar/simplebar.css' %}" rel="stylesheet" />
+  <link href="{% static 'admin_static/plugins/nprogress/nprogress.css' %}" rel="stylesheet" />
+  <link href="{% static 'admin_static/plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'admin_static/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel="stylesheet" />
+  <link href="{% static 'admin_static/plugins/daterangepicker/daterangepicker.css' %}" rel="stylesheet" />
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="{% static 'admin_static/plugins/toaster/toastr.min.css' %}" rel="stylesheet" />
+  <link id="main-css-href" rel="stylesheet" href="{% static 'admin_static/css/style.css' %}" />
+  <link rel="icon" href="{% static 'user_static/images/roc.png' %}" type="image/png" />
+</head>
+<body class="navbar-fixed sidebar-fixed" id="body">
+{% if messages %}
+  {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <script>swal({ title: "Success!", text: "{{message}}", icon: "success", button: "OK" });</script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+      <script>swal({ title: "Warning :)", text: "{{message}}", icon: "warning", button: "OK" });</script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+      <script>swal({ title: "info :)", text: "{{message}}", icon: "info", button: "OK" });</script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <script>swal({ title: "error :)", text: "{{message}}", icon: "error", button: "OK" });</script>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<script>
+  NProgress.configure({ showSpinner: false });
+  NProgress.start();
+</script>
+<div class="wrapper">
+  <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+    <div id="sidebar" class="sidebar sidebar-with-footer">
+      <div class="app-brand">
+        <a style="padding: 0px 0px 0px 0px" href="{% url 'index' %}">
+          <img style="width:70px;" src="{% static 'admin_static/images/rocket.png' %}" alt="Mono">
+          <span class="brand-name">Admin</span>
+        </a>
+      </div>
+      <div class="sidebar-left" data-simplebar style="height: 100%;">
+        <ul class="nav sidebar-inner" id="sidebar-menu">
+          <li class="">
+            <a class="sidenav-item-link" href="{% url 'index' %}">
+              <i class="mdi mdi-briefcase-account-outline"></i>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+          <li class="has-sub">
+            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#email" aria-expanded="false" aria-controls="email">
+              <i class="mdi mdi-email"></i>
+              <span class="nav-text">Users Management </span> <b class="caret"></b>
+            </a>
+            <ul class="collapse" id="email" data-parent="#sidebar-menu">
+              <div class="sub-menu">
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'pending_users' %}">
+                    <span class="nav-text">Pending Users</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'all_users' %}">
+                    <span class="nav-text">All Users</span>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements" aria-expanded="false" aria-controls="ui-elements">
+              <i class="mdi mdi-folder-outline"></i>
+              <span class="nav-text">Startups Management </span> <b class="caret"></b>
+            </a>
+            <ul class="collapse" id="ui-elements" data-parent="#sidebar-menu">
+              <div class="sub-menu">
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'upload_dataset' %}">
+                    <span class="nav-text">Upload Dataset</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'view_dataset' %}">
+                    <span class="nav-text">View Dataset</span>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="has-sub">
+            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="false" aria-controls="users">
+              <i class="mdi mdi-image-filter-none"></i>
+              <span class="nav-text">Algorithms</span> <b class="caret"></b>
+            </a>
+            <ul class="collapse" id="users" data-parent="#sidebar-menu">
+              <div class="sub-menu">
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'algorithm1' %}">
+                    <span class="nav-text">Gradient Boosting</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'algorithm2' %}">
+                    <span class="nav-text">Ada Boost Classifier</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'algorithm3' %}">
+                    <span class="nav-text">Random Forest Classifier</span>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li class="has-sub active">
+            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#authentication" aria-expanded="false" aria-controls="authentication">
+              <i class="mdi mdi-account"></i>
+              <span class="nav-text">Graph Analysis</span> <b class="caret"></b>
+            </a>
+            <ul class="collapse" id="authentication" data-parent="#sidebar-menu">
+              <div class="sub-menu">
+                <li>
+                  <a class="sidenav-item-link" href="{% url 'analasis' %}">
+                    <span class="nav-text">Comparison Graph</span>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <div class="page-wrapper">
+    <header class="main-header" id="header">
+      <nav class="navbar navbar-expand-lg navbar-light" id="navbar" style="background: linear-gradient(90deg,#FEAC5E,#C779D0,#4BC0C8);">
+        <button id="sidebar-toggler" class="sidebar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <span class="page-title"><b>Comparison Graphs</b></span>
+        <div class="navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user-menu">
+              <button class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <img src="{% static 'admin_static/images/user/user-xs-01.png' %}" class="user-image rounded-circle" alt="User Image" />
+                <span class="d-none d-lg-inline-block"><b>Admin</b></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-footer">
+                  <a class="dropdown-link-item" href="{% url 'admin_logout' %}"> <i class="mdi mdi-logout"></i> Log Out </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="content-wrapper">
+      <div class="table_section padding_infor_info">
+        <div class="text-center">
+          <div style="display: flex; justify-content: center;">
+            <div id="chartContainer" style="height: 600px; width: 80%;"></div>
+            <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 20px;">
+              <div style="margin-bottom: 10px; display: flex; align-items: center;">
+                <span style="display:inline-block; width:20px; height:20px; background-color:#00b5e9;"></span>
+                <span style="font-size: 14px; margin-left: 5px;">Accuracy</span>
+              </div>
+              <div style="margin-bottom: 10px; display: flex; align-items: center;">
+                <span style="display:inline-block; width:20px; height:20px; background-color:#ffb822;"></span>
+                <span style="font-size: 14px; margin-left: 5px;">Recall</span>
+              </div>
+              <div style="margin-bottom: 10px; display: flex; align-items: center;">
+                <span style="display:inline-block; width:20px; height:20px; background-color:#f4516c;"></span>
+                <span style="font-size: 14px; margin-left: 5px;">F1 Score</span>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <span style="display:inline-block; width:20px; height:20px; background-color:#4caf50;"></span>
+                <span style="font-size: 14px; margin-left: 5px;">Precision</span>
+              </div>
+            </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+          <script>
+            window.onload = function () {
+              var data = {
+                ada: {
+                  name: 'Ada Boost Classifier',
+                  accuracy: {{ ada_a }},
+                  precision: {{ ada_p }},
+                  recall: {{ ada_r }},
+                  f1_score: {{ ada_f }}
+                },
+                gbc: {
+                  name: 'Gradient Boosting Classifier',
+                  accuracy: {{ gbc_a }},
+                  precision: {{ gbc_p }},
+                  recall: {{ gbc_r }},
+                  f1_score: {{ gbc_f }}
+                },
+                rfc: {
+                  name: 'Random Forest Classifier',
+                  accuracy: {{ rfc_a }},
+                  precision: {{ rfc_p }},
+                  recall: {{ rfc_r }},
+                  f1_score: {{ rfc_f }}
+                }
+              };
+              var seriesData = [
+                { name: 'Accuracy', data: [data.ada.accuracy, data.gbc.accuracy, data.rfc.accuracy] },
+                { name: 'Precision', data: [data.ada.precision, data.gbc.precision, data.rfc.precision] },
+                { name: 'Recall', data: [data.ada.recall, data.gbc.recall, data.rfc.recall] },
+                { name: 'F1 Score', data: [data.ada.f1_score, data.gbc.f1_score, data.rfc.f1_score] }
+              ];
+              var options = {
+                chart: {
+                  type: 'bar',
+                  height: '80%',
+                  stacked: true,
+                  toolbar: {
+                    show: true
+                  },
+                  zoom: {
+                    enabled: true
+                  },
+                  events: {
+                    legendClick: function(chartContext, seriesIndex, config) {
+                      chartContext.toggleSeries(seriesIndex)
+                    }
+                  }
+                },
+                responsive: [{
+                  breakpoint: 480,
+                  options: {
+                    legend: {
+                      position: 'bottom',
+                      offsetY: -10
+                    }
+                  }
+                }],
+                plotOptions: {
+                  bar: {
+                    horizontal: false,
+                  },
+                },
+                series: seriesData,
+                xaxis: {
+                  categories: [data.ada.name, data.gbc.name, data.rfc.name],
+                },
+                legend: {
+                  show: false
+                },
+                fill: {
+                  opacity: 1
+                },
+              }
+              var chart = new ApexCharts(document.querySelector("#chartContainer"), options);
+              chart.render();
+            }
+          </script>
+        </div>
+      </div>
+      <footer class="footer mt-auto">
+        <div class="copyright text-center" style="background-color:thistle;border-top: none;">
+          <p style="color:white;">
+            &copy; <span id="copy-year"></span> Copyright 2024 - All Rights Reserved and Distributed by Team SSP
+          </p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+<script src="{% static 'admin_static/plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'admin_static/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'admin_static/plugins/simplebar/simplebar.min.js' %}"></script>
+<script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+<script src="{% static 'admin_static/plugins/apexcharts/apexcharts.js' %}"></script>
+<script src="{% static 'admin_static/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'admin_static/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+<script src="{% static 'admin_static/plugins/jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'admin_static/plugins/jvectormap/jquery-jvectormap-us-aea.js' %}"></script>
+<script src="{% static 'admin_static/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'admin_static/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="{% static 'admin_static/plugins/toaster/toastr.min.js' %}"></script>
+<script src="{% static 'admin_static/js/mono.js' %}"></script>
+<script src="{% static 'admin_static/js/chart.js' %}"></script>
+<script src="{% static 'admin_static/js/map.js' %}"></script>
+<script src="{% static 'admin_static/js/custom.js' %}"></script>
+</body>
+</html>
