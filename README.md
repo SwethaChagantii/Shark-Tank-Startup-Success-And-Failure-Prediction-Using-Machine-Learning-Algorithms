@@ -46,79 +46,79 @@ Below are the screenshots of the project website, illustrating various features 
 ![Home Page](Documentation/Screenshots/s1.png)
 
 ### Step 2: User Registration
-![User Registration](path/to/user_registration.png)
+![User Registration](Documentation/Screenshots/s2.png)
 
 ### Step 3: Successful User Registration
-![Successful User Registration](path/to/successful_user_registration.png)
+![Successful User Registration](Documentation/Screenshots/s3.png)
 
 ### Step 4: Pending User Login
-![Pending User Login](path/to/pending_user_login.png)
+![Pending User Login](Documentation/Screenshots/s4.png)
 
 ### Step 5: Admin Login
-![Admin Login](path/to/admin_login.png)
+![Admin Login](Documentation/Screenshots/s5.png)
 
 ### Step 6: Successful Admin Login
-![Successful Admin Login](path/to/successful_admin_login.png)
+![Successful Admin Login](Documentation/Screenshots/s6.png)
 
 ### Step 7: Admin Dashboard
-![Admin Dashboard](path/to/admin_dashboard.png)
+![Admin Dashboard](Documentation/Screenshots/s7.png)
 
 ### Step 8: Pending Users
-![Pending Users](path/to/pending_users.png)
+![Pending Users](Documentation/Screenshots/s8.png)
 
 ### Step 9: User Accepted
-![User Accepted](path/to/user_accepted.png)
+![User Accepted](Documentation/Screenshots/s9.png)
 
 ### Step 10: All Users
-![All Users](path/to/all_users.png)
+![All Users](Documentation/Screenshots/s10.png)
 
 ### Step 11: Upload Dataset
-![Upload Dataset](path/to/upload_dataset.png)
+![Upload Dataset](Documentation/Screenshots/s11.png)
 
 ### Step 12: View Dataset
-![View Dataset](path/to/view_dataset.png)
+![View Dataset](Documentation/Screenshots/s12.png)
 
 ### Step 13: Gradient Boost Algorithm
-![Gradient Boost](path/to/gradient_boost.png)
+![Gradient Boost](Documentation/Screenshots/s13.png)
 
 ### Step 14: AdaBoost Algorithm
-![AdaBoost](path/to/adaboost.png)
+![AdaBoost](Documentation/Screenshots/s14.png)
 
 ### Step 15: Random Forest Classifier
-![Random Forest](path/to/random_forest.png)
+![Random Forest](Documentation/Screenshots/s15.png)
 
 ### Step 16:  Comparison Graph
-![Home Page](path/to/homepage.png)
+![Home Page](Documentation/Screenshots/s16.png)
 
 ### Step 17: Admin Logout
-![User Registration](path/to/user_registration.png)
+![User Registration](Documentation/Screenshots/s17.png)
 
 ### Step 18: User Login
-![Successful User Registration](path/to/successful_user_registration.png)
+![Successful User Registration](Documentation/Screenshots/s18.png)
 
 ### Step 19: Successful User Login
-![Pending User Login](path/to/pending_user_login.png)
+![Pending User Login](Documentation/Screenshots/s19.png)
 
 ### Step 20: User Profile
-![Admin Login](path/to/admin_login.png)
+![Admin Login](Documentation/Screenshots/s20.png)
 
 ### Step 21: Prediction Input - 1
-![Successful Admin Login](path/to/successful_admin_login.png)
+![Successful Admin Login](Documentation/Screenshots/s21.png)
 
 ### Step 22: Prediction Output - 1
-![Admin Dashboard](path/to/admin_dashboard.png)
+![Admin Dashboard](Documentation/Screenshots/s22.png)
 
 ### Step 23:Prediction Input - 2
-![Pending Users](path/to/pending_users.png)
+![Pending Users](Documentation/Screenshots/s23.png)
 
 ### Step 24: Prediction Output - 2
-![User Accepted](path/to/user_accepted.png)
+![User Accepted](Documentation/Screenshots/s24.png)
 
 ### Step 25: User Logout
-![All Users](path/to/all_users.png)
+![All Users](Documentation/Screenshots/s25.png)
 
 ### Step 26: Contact
-![Upload Dataset](path/to/upload_dataset.png)
+![Upload Dataset](Documentation/Screenshots/s26.png)
 
 
 ## Conclusion
