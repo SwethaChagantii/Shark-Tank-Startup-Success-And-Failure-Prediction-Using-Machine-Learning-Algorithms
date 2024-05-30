@@ -22,7 +22,7 @@ In today's fast-paced world, startups are the backbone of innovation and economi
 
 
 ## Tech Stack
-![Tech Stack](Documentation/Screenshots/s28.png)
+![Tech Stack](Documentation/Screenshots/s27.png)
 
 
 
