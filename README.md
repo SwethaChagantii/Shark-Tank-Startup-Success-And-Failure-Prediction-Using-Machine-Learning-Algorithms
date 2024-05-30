@@ -42,28 +42,84 @@ The project utilizes the following Machine Learning algorithms:
 
 ## Screenshots
 Below are the screenshots of the project website, illustrating various features and steps involved in the project:
+### Step 1: Home Page
+![Home Page](Documentation/Screenshots/s1.png)
 
-1. ![Screenshot 1](path_to_screenshot_1)
-2. ![Screenshot 2](path_to_screenshot_2)
-3. ![Screenshot 3](path_to_screenshot_3)
-4. ![Screenshot 4](path_to_screenshot_4)
-5. ![Screenshot 5](path_to_screenshot_5)
-6. ![Screenshot 6](path_to_screenshot_6)
-7. ![Screenshot 7](path_to_screenshot_7)
-8. ![Screenshot 8](path_to_screenshot_8)
-9. ![Screenshot 9](path_to_screenshot_9)
-10. ![Screenshot 10](path_to_screenshot_10)
-11. ![Screenshot 11](path_to_screenshot_11)
-12. ![Screenshot 12](path_to_screenshot_12)
-13. ![Screenshot 13](path_to_screenshot_13)
-14. ![Screenshot 14](path_to_screenshot_14)
-15. ![Screenshot 15](path_to_screenshot_15)
-16. ![Screenshot 16](path_to_screenshot_16)
-17. ![Screenshot 17](path_to_screenshot_17)
-18. ![Screenshot 18](path_to_screenshot_18)
-19. ![Screenshot 19](path_to_screenshot_19)
-20. ![Screenshot 20](path_to_screenshot_20)
-21. ![Screenshot 21](path_to_screenshot_21)
+### Step 2: User Registration
+![User Registration](path/to/user_registration.png)
+
+### Step 3: Successful User Registration
+![Successful User Registration](path/to/successful_user_registration.png)
+
+### Step 4: Pending User Login
+![Pending User Login](path/to/pending_user_login.png)
+
+### Step 5: Admin Login
+![Admin Login](path/to/admin_login.png)
+
+### Step 6: Successful Admin Login
+![Successful Admin Login](path/to/successful_admin_login.png)
+
+### Step 7: Admin Dashboard
+![Admin Dashboard](path/to/admin_dashboard.png)
+
+### Step 8: Pending Users
+![Pending Users](path/to/pending_users.png)
+
+### Step 9: User Accepted
+![User Accepted](path/to/user_accepted.png)
+
+### Step 10: All Users
+![All Users](path/to/all_users.png)
+
+### Step 11: Upload Dataset
+![Upload Dataset](path/to/upload_dataset.png)
+
+### Step 12: View Dataset
+![View Dataset](path/to/view_dataset.png)
+
+### Step 13: Gradient Boost Algorithm
+![Gradient Boost](path/to/gradient_boost.png)
+
+### Step 14: AdaBoost Algorithm
+![AdaBoost](path/to/adaboost.png)
+
+### Step 15: Random Forest Classifier
+![Random Forest](path/to/random_forest.png)
+
+### Step 16:  Comparison Graph
+![Home Page](path/to/homepage.png)
+
+### Step 17: Admin Logout
+![User Registration](path/to/user_registration.png)
+
+### Step 18: User Login
+![Successful User Registration](path/to/successful_user_registration.png)
+
+### Step 19: Successful User Login
+![Pending User Login](path/to/pending_user_login.png)
+
+### Step 20: User Profile
+![Admin Login](path/to/admin_login.png)
+
+### Step 21: Prediction Input - 1
+![Successful Admin Login](path/to/successful_admin_login.png)
+
+### Step 22: Prediction Output - 1
+![Admin Dashboard](path/to/admin_dashboard.png)
+
+### Step 23:Prediction Input - 2
+![Pending Users](path/to/pending_users.png)
+
+### Step 24: Prediction Output - 2
+![User Accepted](path/to/user_accepted.png)
+
+### Step 25: User Logout
+![All Users](path/to/all_users.png)
+
+### Step 26: Contact
+![Upload Dataset](path/to/upload_dataset.png)
+
 
 ## Conclusion
 - Investors are highly interested in making money by investing in startups as they are able to deliver high returns in less amount of time
